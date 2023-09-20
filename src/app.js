@@ -1,10 +1,10 @@
-import "dotenv/config";
-import "./clients/db";
-import express from "express";
-import Boom from "boom";
-import cors from "cors";
-import routes from "./routes";
-import auth from "./controllers/auth";
+require('dotenv').config();
+require('./clients/db');
+const express = require('express');
+const Boom = require('boom');
+const cors = require('cors');
+const routes = require('./routes');
+const auth = require('./controllers/auth');
 
 const app = express();
 

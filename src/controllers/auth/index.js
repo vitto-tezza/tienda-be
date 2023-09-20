@@ -1,12 +1,12 @@
-import nodemailer from "nodemailer";
-import Boom from "boom";
-import User from "../../models/user";
-import {
+const nodemailer = require("nodemailer");
+const Boom = require("boom");
+const User = require("../../models/user");
+const {
   signAccessToken,
   signRefreshToken,
   verifyRefreshToken,
-} from "../../helpers/jwt";
-import ValidationSchema from "./validations";
+} = require("../../helpers/jwt");
+const ValidationSchema = require("./validations");
 
 const transport = nodemailer.createTransport({
   service: "gmail",
@@ -236,7 +236,7 @@ const deleteInactiveUsers = async () => {
   }
 };
 
-export default {
+module.exports = {
   Register,
   Login,
   RefreshToken,

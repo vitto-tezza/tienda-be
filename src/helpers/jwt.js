@@ -1,5 +1,5 @@
-import JWT from "jsonwebtoken";
-import Boom from "boom";
+const JWT = require("jsonwebtoken");
+const Boom = require("boom");
 
 const signAccessToken = (data) => {
   return new Promise((resolve, reject) => {
@@ -80,7 +80,7 @@ const verifyRefreshToken = async (refresh_token) => {
   });
 };
 
-export {
+module.exports = {
   signAccessToken,
   verifyAccessToken,
   signRefreshToken,

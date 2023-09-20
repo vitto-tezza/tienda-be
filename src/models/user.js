@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
-import bcrypt from "bcrypt";
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const UserSchema = new Schema({
   email: {
@@ -46,4 +46,4 @@ UserSchema.methods.isValidPass = async function (pass) {
 
 const User = mongoose.model("user", UserSchema);
 
-export default User;
+module.exports = User;

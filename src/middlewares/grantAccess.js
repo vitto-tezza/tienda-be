@@ -1,4 +1,4 @@
-import { roles } from '../roles';
+const { roles } = require('../roles');
 
 const grantAccess = (action, resource) => {
   return async (req, res, next) => {
@@ -12,4 +12,4 @@ const grantAccess = (action, resource) => {
   };
 };
 
-export default grantAccess;
+module.exports = grantAccess;

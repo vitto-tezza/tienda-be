@@ -1,8 +1,8 @@
-import express from "express";
+const express = require("express");
 const router = express.Router();
 
-import auth from "../controllers/auth";
-import { verifyAccessToken } from "../helpers/jwt";
+const auth = require("../controllers/auth");
+const { verifyAccessToken } = require("../helpers/jwt");
 
 router.post("/register", auth.Register);
 router.post("/login", auth.Login);
@@ -13,4 +13,4 @@ router.get("/users", auth.GetAllUsers);
 router.delete("/admin/users/:userId", verifyAccessToken, auth.deleteUser);
 router.put("/admin/users/:userId/role", verifyAccessToken, auth.changeUserRole);
 
-export default router;
+module.exports = router;

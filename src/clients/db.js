@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const mongooseOptions = {
   useNewUrlParser: true,
@@ -16,4 +16,4 @@ mongoose
     process.exit(1);
   });
 
-export default mongoose.connection;
+module.exports = mongoose.connection;

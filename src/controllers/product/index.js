@@ -1,6 +1,6 @@
-import Product from "../../models/product";
-import Boom from "boom";
-import ProductSchema from "./validations";
+const Product = require("../../models/product");
+const Boom = require("boom");
+const ProductSchema = require("./validations");
 
 const Create = async (req, res, next) => {
   const input = req.body;
@@ -26,7 +26,7 @@ const Get = async (req, res, next) => {
   const { product_id } = req.params;
 
   if (!product_id) {
-    return next(Boom.badRequest("Missing paramter (:product_id)"));
+    return next(Boom.badRequest("Missing parameter (:product_id)"));
   }
 
   try {
@@ -90,7 +90,7 @@ const GetList = async (req, res, next) => {
   }
 };
 
-export default {
+module.exports = {
   Create,
   Get,
   Update,
