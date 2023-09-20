@@ -4,7 +4,7 @@ import Boom from "boom";
 const signAccessToken = (data) => {
   return new Promise((resolve, reject) => {
     const payload = {
-      data,
+      ...data,
     };
 
     const options = {
