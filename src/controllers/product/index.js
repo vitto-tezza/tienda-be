@@ -4,16 +4,16 @@ const ProductSchema = require("./validations");
 
 const Create = async (req, res, next) => {
   const input = req.body;
-  const { error } = ProductSchema.validate(input);
-
-  if (error) {
-    return next(Boom.badRequest(error.details[0].message));
-  }
 
   try {
     input.photos = JSON.parse(input.photos);
 
-    const product = new Product(input);
+    let product = new Product(input);
+
+    if (input.stock && typeof input.stock === 'number' && input.stock >= 0) {
+      product.stock = input.stock;
+    }
+
     const savedData = await product.save();
 
     res.json(savedData);
@@ -21,6 +21,9 @@ const Create = async (req, res, next) => {
     next(e);
   }
 };
+
+
+
 
 const Get = async (req, res, next) => {
   const { product_id } = req.params;
